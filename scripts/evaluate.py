@@ -71,7 +71,11 @@ def main() -> None:
     backend = get_backend(args.backend, args.model, args.adapter, few_shot)
     rows = []
     for i, ex in enumerate(test, 1):
-        completion, latency = backend(ex["text"])
+        try:
+            completion, latency = backend(ex["text"])
+        except Exception as e:  # count a timeout/crash as a failed prediction, keep going
+            print(f"  ! {ex['id']} failed: {e}")
+            completion, latency = "", None
         pred, valid = parse_output(completion)
         rows.append({"id": ex["id"], "text": ex["text"], "gold": ex, "pred": pred,
                      "raw": completion, "valid_json": valid, "latency_s": latency})

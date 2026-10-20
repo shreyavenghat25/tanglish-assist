@@ -1,0 +1,275 @@
+{
+  "n": 72,
+  "intent_accuracy": 0.4027777777777778,
+  "intent_macro_f1": 0.43329124579124584,
+  "valid_json_rate": 0.25,
+  "entity_exact": {
+    "order_id": 0.5416666666666666,
+    "item": 0.6666666666666666,
+    "date": 0.7638888888888888,
+    "amount": 0.7361111111111112
+  },
+  "entity_lenient": {
+    "order_id": 0.5416666666666666,
+    "item": 0.7083333333333334,
+    "date": 0.8055555555555556,
+    "amount": 0.7361111111111112
+  },
+  "all_entities_correct": 0.2638888888888889,
+  "hallucinated_order_id_rate": 0.3888888888888889,
+  "latency_p50_s": 5.570233250499996,
+  "latency_p95_s": 15.003785749999679,
+  "confusion_labels": [
+    "order_status",
+    "delivery_delay",
+    "cancel_order",
+    "return_request",
+    "wrong_item",
+    "damaged_item",
+    "refund_status",
+    "payment_issue",
+    "address_change",
+    "coupon_issue",
+    "account_issue",
+    "other",
+    "__invalid__"
+  ],
+  "confusion_matrix": [
+    [
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3
+    ],
+    [
+      1,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      0,
+      0,
+      2
+    ],
+    [
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      1
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      1
+    ],
+    [
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "top_confusions": [
+    [
+      "return_request -> __invalid__",
+      4
+    ],
+    [
+      "delivery_delay -> __invalid__",
+      3
+    ],
+    [
+      "damaged_item -> wrong_item",
+      3
+    ],
+    [
+      "other -> order_status",
+      3
+    ],
+    [
+      "cancel_order -> __invalid__",
+      2
+    ],
+    [
+      "refund_status -> __invalid__",
+      2
+    ],
+    [
+      "payment_issue -> __invalid__",
+      2
+    ],
+    [
+      "address_change -> __invalid__",
+      2
+    ]
+  ],
+  "run": "base-llama3.2-3b",
+  "backend": "ollama",
+  "model": "llama3.2:3b",
+  "few_shot": 0,
+  "verified_only": true,
+  "unverified_rows": 0,
+  "date": "2026-10-20"
+}

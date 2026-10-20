@@ -1,0 +1,275 @@
+{
+  "n": 72,
+  "intent_accuracy": 0.3611111111111111,
+  "intent_macro_f1": 0.3810425685425685,
+  "valid_json_rate": 1.0,
+  "entity_exact": {
+    "order_id": 1.0,
+    "item": 0.6111111111111112,
+    "date": 0.8611111111111112,
+    "amount": 0.9166666666666666
+  },
+  "entity_lenient": {
+    "order_id": 1.0,
+    "item": 0.6111111111111112,
+    "date": 0.8611111111111112,
+    "amount": 0.9166666666666666
+  },
+  "all_entities_correct": 0.4583333333333333,
+  "hallucinated_order_id_rate": 0.0,
+  "latency_p50_s": 0.001,
+  "latency_p95_s": 0.001,
+  "confusion_labels": [
+    "order_status",
+    "delivery_delay",
+    "cancel_order",
+    "return_request",
+    "wrong_item",
+    "damaged_item",
+    "refund_status",
+    "payment_issue",
+    "address_change",
+    "coupon_issue",
+    "account_issue",
+    "other",
+    "__invalid__"
+  ],
+  "confusion_matrix": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      0
+    ],
+    [
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      4,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      4,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      5,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      4,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "top_confusions": [
+    [
+      "wrong_item -> other",
+      6
+    ],
+    [
+      "order_status -> other",
+      5
+    ],
+    [
+      "delivery_delay -> other",
+      5
+    ],
+    [
+      "damaged_item -> other",
+      5
+    ],
+    [
+      "coupon_issue -> other",
+      5
+    ],
+    [
+      "payment_issue -> other",
+      4
+    ],
+    [
+      "address_change -> other",
+      4
+    ],
+    [
+      "account_issue -> other",
+      4
+    ]
+  ],
+  "run": "keyword-baseline",
+  "backend": "mock",
+  "model": "keyword-rules",
+  "few_shot": 0,
+  "verified_only": true,
+  "unverified_rows": 0,
+  "date": "2026-10-20"
+}

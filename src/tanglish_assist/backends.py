@@ -35,12 +35,12 @@ class OllamaBackend:
             "model": self.model,
             "messages": _messages(text, self.few_shot),
             "stream": False,
-            "options": {"temperature": 0},
+            "options": {"temperature": 0, "num_predict": 300},
         }).encode()
         req = urllib.request.Request(f"{self.host}/api/chat", data=body,
                                      headers={"Content-Type": "application/json"})
         t0 = time.perf_counter()
-        with urllib.request.urlopen(req, timeout=300) as resp:
+        with urllib.request.urlopen(req, timeout=900) as resp:
             data = json.loads(resp.read())
         return data["message"]["content"], time.perf_counter() - t0
 
