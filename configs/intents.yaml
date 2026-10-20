@@ -1,0 +1,46 @@
+# Tanglish Assist — intent taxonomy for e-commerce customer support.
+# Keep this list small and unambiguous: every test example must map to exactly one intent.
+
+intents:
+  order_status:
+    description: Customer wants to know where the order is / current status (no complaint about delay yet).
+    example: "en order ORD48213907 enga irukku nu sollunga"
+  delivery_delay:
+    description: Order is late versus the promised date; customer is complaining about the delay.
+    example: "promised date nethu, innum delivery aagala bro"
+  cancel_order:
+    description: Customer wants to cancel an order that has not been delivered.
+    example: "intha order cancel pannanum, wrong size select pannitten"
+  return_request:
+    description: Customer wants to return a delivered item (size, fit, changed mind) — not damaged or wrong.
+    example: "shoe size sariya varala, return pannalama?"
+  wrong_item:
+    description: Delivered item is different from what was ordered (colour, model, product).
+    example: "blue order panninen, red vanthuchu"
+  damaged_item:
+    description: Delivered item is broken, defective, or the package was damaged.
+    example: "mixie box open panna jar crack aagi irukku"
+  refund_status:
+    description: Customer is asking when/whether a refund will be credited.
+    example: "refund eppo varum? 5 days aachu"
+  payment_issue:
+    description: Money debited but order failed, double charge, UPI/card failure.
+    example: "UPI la 1499 cut aachu but order place aagala"
+  address_change:
+    description: Customer wants to change delivery address or phone number on an order.
+    example: "delivery address maathanum, new flat ku anupunga"
+  coupon_issue:
+    description: Coupon/offer/cashback did not apply or was not credited.
+    example: "cashback 200 promise pannanga, innum varala"
+  account_issue:
+    description: Login, OTP, account blocked, profile/email problems.
+    example: "OTP ye varala, login panna mudiyala"
+  other:
+    description: Greetings, thanks, feedback, or anything outside the above intents.
+    example: "thanks bro, problem solve aagiduchu"
+
+entities:
+  order_id: "Order ID in the form ORD followed by 8 digits (e.g. ORD48213907). null if absent."
+  item: "Product mentioned (e.g. 'shoe', 'mixie', 'phone cover'). null if absent."
+  date: "Any date or relative time the customer mentions, copied as written (e.g. 'nethu', '12th', '5 days'). null if absent."
+  amount: "Money amount as an integer in rupees (e.g. 1499). null if absent."

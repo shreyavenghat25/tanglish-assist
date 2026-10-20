@@ -1,0 +1,9 @@
+# Local: data generation, evaluation, demo (training runs in Colab — see notebook)
+pyyaml>=6.0
+scikit-learn>=1.3
+openai>=1.40        # only for API baselines / LLM augmentation
+gradio>=4.0         # demo
+pytest>=8.0
+# For the Hugging Face Spaces demo add:
+# llama-cpp-python
+# huggingface_hub

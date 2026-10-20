@@ -1,0 +1,24 @@
+# Tanglish Assist — Ollama Modelfile
+# Put the GGUF exported from the Colab notebook next to this file, then:
+#   ollama create tanglish-assist -f ollama/Modelfile
+#   ollama run tanglish-assist "en order ORD12345678 innum varala bro"
+FROM ./tanglish-assist-q4_k_m.gguf
+
+TEMPLATE """{{ if .System }}<|start_header_id|>system<|end_header_id|>
+
+{{ .System }}<|eot_id|>{{ end }}{{ if .Prompt }}<|start_header_id|>user<|end_header_id|>
+
+{{ .Prompt }}<|eot_id|>{{ end }}<|start_header_id|>assistant<|end_header_id|>
+
+{{ .Response }}<|eot_id|>"""
+
+SYSTEM """You are Tanglish Assist, a customer-support model for an Indian e-commerce store. Customers write in Tanglish (Tamil written in English letters, mixed with English). Read the customer message and answer with ONLY a JSON object, no other text, with keys:
+  "intent": one of ['order_status', 'delivery_delay', 'cancel_order', 'return_request', 'wrong_item', 'damaged_item', 'refund_status', 'payment_issue', 'address_change', 'coupon_issue', 'account_issue', 'other']
+  "entities": {"order_id": string|null, "item": string|null, "date": string|null, "amount": integer|null}
+  "reply": a short, polite reply in the same Tanglish style as the customer.
+order_id looks like ORD followed by 8 digits. Use null for anything not mentioned. Never invent an order ID, date or amount."""
+
+PARAMETER temperature 0
+PARAMETER num_ctx 2048
+PARAMETER stop "<|eot_id|>"
+PARAMETER stop "<|start_header_id|>"
